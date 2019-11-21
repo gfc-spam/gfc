@@ -10,7 +10,7 @@ channel.send(process.env.MESSAGE);
 })*/
 
 client.login(process.env.TOKEN);
-
+/*
 client.on("ready", () => {
     console.log(`Hi, ${client.user.username} is now online!`);
 
