@@ -11,17 +11,6 @@ channel.send(process.env.MESSAGE);
 }, 30)
 })
 
-client.on("ready", () => {
-
-    client.user.setPresence({
-        status: "online",
-        game: {
-            name: "SPAM",
-            type: "WATCHING"
-        }
-    }); 
-})
-
 client.on("message", async message => {
     const prefix = "-";
 
