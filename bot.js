@@ -23,7 +23,7 @@ client.on("ready", () => {
     }); 
 })
 
-client.on("message", async message => {
+client.on("message", message => {
     const prefix = "-";
 
     // If the author's a bot, return
