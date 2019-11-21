@@ -12,7 +12,7 @@ channel.send(process.env.MESSAGE);
 })
 
 client.on("ready", () => {
-    bot.user.setStatus('available')
+    bot.user.setStatus('online')
     bot.user.setPresence({
         game: {
             name: 'Spamming as Omar said',
