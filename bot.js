@@ -9,6 +9,8 @@ channel.send(process.env.MESSAGE);
 }, 30)
 })
 
+client.login(process.env.TOKEN);
+
 client.on('message', message => {
 if(message.content.toLowerCase() === 'daily'){
 message.channel.send("#daily");
@@ -104,4 +106,3 @@ client.on("message", async message => {
     }
 });
 */
-client.login(process.env.TOKEN);
