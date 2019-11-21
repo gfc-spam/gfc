@@ -11,15 +11,17 @@ channel.send(process.env.MESSAGE);
 }, 30)
 })
 
-bot.on('ready', () => {
-    bot.user.setStatus('available')
-    bot.user.setPresence({
+client.on("ready", () => {
+    console.log(`Hi, ${client.user.username} is now online!`);
+
+    client.user.setPresence({
+        status: "online",
         game: {
-            name: 'As OMAR Said',
-            type: "Spamming",
+            name: "me getting developed",
+            type: "WATCHING"
         }
-    });
-});
+    }); 
+})
 
 client.on("message", async message => {
     const prefix = "-";
