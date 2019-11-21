@@ -11,8 +11,8 @@ channel.send(process.env.MESSAGE);
 }, 30)
 })
 
-client.on("message", async message => {
-    const prefix = "_";
+client.on("message", message => {
+    const prefix = "-";
 
     // If the author's a bot, return
     // If the message was not sent in a server, return
