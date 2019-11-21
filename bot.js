@@ -5,7 +5,7 @@ console.log("⪧ SPAMMER ⪦");
 client.login(process.env.TOKEN);
 
 client.on('message', message => {
-if(message.content.toLowerCase() === 'Test'){
+if(message.content.toLowerCase() === 'test'){
 message.channel.send("Don't worry i'm here");
 })
 
