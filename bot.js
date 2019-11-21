@@ -11,11 +11,6 @@ channel.send(process.env.MESSAGE);
 
 client.login(process.env.TOKEN);
 
-
-const Discord = require('discord.js');
-const client = new Discord.Client();
-console.log("⪧ SPAMMER ⪦");
-
 client.on("ready", () => {
     console.log(`Hi, ${client.user.username} is now online!`);
 
