@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+﻿const Discord = require('discord.js');
 const client = new Discord.Client();
 console.log("⪧ SPAMMER ⪦");
 
@@ -11,8 +11,19 @@ channel.send(process.env.MESSAGE);
 }, 30)
 })
 
+client.on("ready", () => {
+
+    client.user.setPresence({
+        status: "online",
+        game: {
+            name: "SPAM",
+            type: "WATCHING"
+        }
+    }); 
+})
+
 client.on("message", async message => {
-    const prefix = "_";
+    const prefix = "-";
 
     // If the author's a bot, return
     // If the message was not sent in a server, return
