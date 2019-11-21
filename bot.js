@@ -11,6 +11,7 @@ channel.send(process.env.MESSAGE);
 }, 30)
 })
 
+
 client.on("ready", () => {
     console.log(`Hi, ${client.user.username} is now online!`);
 
