@@ -24,13 +24,13 @@ client.on("ready", () => {
 })
 
 client.on("message", async message => {
-    const prefix = "-";
+    const prefix = "_";
 
     // If the author's a bot, return
     // If the message was not sent in a server, return
     // If the message doesn't start with the prefix, return
-    //if (message.author.bot) return;
-    //if (!message.guild) return;
+    if (message.author.bot) return;
+    if (!message.guild) return;
     if (!message.content.startsWith(prefix)) return;
 
     // Arguments and command variable
@@ -39,7 +39,7 @@ client.on("message", async message => {
     // !say hello I am a bot
     // cmd == say (because the prefix is sliced off)
     // args == ["hello", "I", "am", "a", "bot"]
-    const args = message.content.slice(prefix.length).trim().split(' ');
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
 
     if (cmd === "ping") {
