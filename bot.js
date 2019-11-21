@@ -53,17 +53,7 @@ client.on("message", async message => {
 
         // If the first argument is embed, send an embed,
         // otherwise, send a normal message
-        if (args[0].toLowerCase() === "embed") {
-            const embed = new RichEmbed()
-                .setDescription(args.slice(1).join(" "))
-                .setColor(roleColor === "#000000" ? "#ffffff" :  roleColorv)
-                .setTimestamp()
-                .setImage(client.user.displayAvatarURL)
-                .setAuthor(message.author.username, message.author.displayAvatarURL);
-
-            message.channel.send(embed);
-        } else {
             message.channel.send(args.join(" "));
-        }
+        
     }
 });
