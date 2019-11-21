@@ -20,7 +20,7 @@ client.on("ready", () => {
             name: "me getting developed",
             type: "WATCHING"
         }
-    });*/ 
+    });
 })
 
 client.on("message", message => {
