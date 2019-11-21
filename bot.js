@@ -17,8 +17,8 @@ client.on("ready", () => {
     client.user.setPresence({
         status: "online",
         game: {
-            name: "as Omar said",
-            type: "SPAMMING"
+            name: "Spam !",
+            type: "PLAYING"
         }
     }); 
 })
