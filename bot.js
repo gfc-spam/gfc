@@ -11,18 +11,6 @@ channel.send(process.env.MESSAGE);
 }, 30)
 })
 
-client.on("ready", () => {
-    console.log(`Hi, ${client.user.username} is now online!`);
-
-    client.user.setPresence({
-        status: "online",
-        game: {
-            name: "Spam !",
-            type: "PLAYING"
-        }
-    }); 
-})
-
 client.on("message", async message => {
     const prefix = "-";
 
