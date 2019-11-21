@@ -10,6 +10,11 @@ channel.send(process.env.MESSAGE);
 })*/
 
 client.login(process.env.TOKEN);
+
+client.on('message', message => {
+if(message.content.toLowerCase() === 'Test'){
+message.channel.send("Don't worry i'm here");
+}
 /*
 client.on("ready", () => {
     console.log(`Hi, ${client.user.username} is now online!`);
