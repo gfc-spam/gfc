@@ -1,33 +1,77 @@
-﻿const Discord = require('discord.js');
-const client = new Discord.Client();
-console.log("⪧ SPAMMER ⪦");
+const { Client, RichEmbed } = require("discord.js");
+const { config } = require("dotenv");
 
-client.login(process.env.TOKEN);
+const client = new Client({
+    disableEveryone: true
+})
+
+config({
+    path: __dirname + "/.env"
+})
 
 client.on("ready", () => {
+    console.log(`Hi, ${client.user.username} is now online!`);
 
-const prefix = "-"
-
-let channel =     client.channels.get(process.env.CHANNEL)
-setInterval(function() {
-channel.send(process.env.MESSAGE);
-}, 30)
+    client.user.setPresence({
+        status: "online",
+        game: {
+            name: "me getting developed",
+            type: "WATCHING"
+        }
+    }); 
 })
-client.on('message', message => {
 
-if(message.author.bot) return;
-if(message.content.indexOf(config.prefix) !== 0) return;
+client.on("message", async message => {
+    const prefix = "_";
 
-const args = message.content.slice(config.prefix.length).trim().split(' ');
-const command = args.shift().toLowerCase();
+    // If the author's a bot, return
+    // If the message was not sent in a server, return
+    // If the message doesn't start with the prefix, return
+    if (message.author.bot) return;
+    if (!message.guild) return;
+    if (!message.content.startsWith(prefix)) return;
 
-if(command === "say") {
-    // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
-    // To get the "message" itself we join the `args` back into a string with spaces: 
-    const sayMessage = args.join(" ");
-    // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
-    message.delete().catch(O_o=>{}); 
-    // And we get the bot to say the thing: 
-    message.channel.send(sayMessage)
-}
-})
+    // Arguments and command variable
+    // cmd is the first word in the message, aka the command
+    // args is an array of words after the command
+    // !say hello I am a bot
+    // cmd == say (because the prefix is sliced off)
+    // args == ["hello", "I", "am", "a", "bot"]
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const cmd = args.shift().toLowerCase();
+
+    if (cmd === "ping") {
+        // Send a message
+        const msg = await message.channel.send(`🏓 Pinging....`);
+
+        // Edit the message
+        msg.edit(`🏓 Pong!\nLatency is ${Math.floor(msg.createdTimestap - message.createdTimestap)}ms\nAPI Latency is ${Math.round(client.ping)}ms`);
+    }
+
+    if (cmd === "say") {
+        // Check if you can delete the message
+        if (message.deletable) message.delete();
+
+        if (args.length < 0) return message.reply(`Nothing to say?`).then(m => m.delete(5000));
+        
+        // Role color
+        const roleColor = message.guild.me.highestRole.hexColor;
+
+        // If the first argument is embed, send an embed,
+        // otherwise, send a normal message
+        if (args[0].toLowerCase() === "embed") {
+            const embed = new RichEmbed()
+                .setDescription(args.slice(1).join(" "))
+                .setColor(roleColor === "#000000" ? "#ffffff" :  roleColorv)
+                .setTimestamp()
+                .setImage(client.user.displayAvatarURL)
+                .setAuthor(message.author.username, message.author.displayAvatarURL);
+
+            message.channel.send(embed);
+        } else {
+            message.channel.send(args.join(" "));
+        }
+    }
+});
+
+client.login(process.env.TOKEN);
