@@ -11,10 +11,6 @@ channel.send(process.env.MESSAGE);
 }, 30)
 })
 
-config({
-    path: __dirname + "/.env"
-})
-
 client.on("ready", () => {
     console.log(`Hi, ${client.user.username} is now online!`);
 
