@@ -33,8 +33,8 @@ client.on("message", async message => {
     // If the author's a bot, return
     // If the message was not sent in a server, return
     // If the message doesn't start with the prefix, return
-    if (message.author.bot) return;
-    if (!message.guild) return;
+    //if (message.author.bot) return;
+    //if (!message.guild) return;
     if (!message.content.startsWith(prefix)) return;
 
     // Arguments and command variable
