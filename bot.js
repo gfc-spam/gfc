@@ -13,12 +13,11 @@ channel.send(process.env.MESSAGE);
 
 
 client.on("ready", () => {
-    console.log(`Hi, ${client.user.username} is now online!`);
 
     client.user.setPresence({
         status: "online",
         game: {
-            name: "me getting developed",
+            name: "SPAM",
             type: "WATCHING"
         }
     }); 
