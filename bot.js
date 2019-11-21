@@ -24,7 +24,7 @@ client.on("ready", () => {
 })
 
 client.on("message", async message => {
-    const prefix = "_";
+    const prefix = "-";
 
     // If the author's a bot, return
     // If the message was not sent in a server, return
