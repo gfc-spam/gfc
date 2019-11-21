@@ -4,10 +4,6 @@ console.log("⪧ SPAMMER ⪦");
 
 client.login(process.env.TOKEN);
 
-config({
-    path: __dirname + "/.env"
-})
-
 client.on("ready", () => {
     console.log(`Hi, ${client.user.username} is now online!`);
 
