@@ -1,9 +1,8 @@
-const { Client, RichEmbed } = require("discord.js");
-const { config } = require("dotenv");
+const Discord = require('discord.js');
+const client = new Discord.Client();
+console.log("⪧ SPAMMER ⪦");
 
-const client = new Client({
-    disableEveryone: true
-})
+client.login(process.env.TOKEN);
 
 config({
     path: __dirname + "/.env"
