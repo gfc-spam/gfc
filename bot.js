@@ -11,17 +11,6 @@ channel.send(process.env.MESSAGE);
 }, 30)
 })
 
-client.on("ready", () => {
-    bot.user.setStatus('online')
-    bot.user.setPresence({
-        game: {
-            name: 'Spamming as Omar said',
-            type: "PLAYING",
-            url: "https://www.twitch.tv/monstercat"
-        }
-    });
-})
-
 client.on("message", async message => {
     const prefix = "_";
 
