@@ -11,8 +11,20 @@ channel.send(process.env.MESSAGE);
 }, 30)
 })
 
-client.on("message", message => {
-    const prefix = "-";
+client.on("ready", () => {
+    console.log(`Hi, ${client.user.username} is now online!`);
+
+    client.user.setPresence({
+        status: "online",
+        game: {
+            name: "me getting developed",
+            type: "WATCHING"
+        }
+    }); 
+})
+
+client.on("message", async message => {
+    const prefix = "_";
 
     // If the author's a bot, return
     // If the message was not sent in a server, return
@@ -63,3 +75,5 @@ client.on("message", message => {
         }
     }
 });
+
+client.login(process.env.TOKEN);
