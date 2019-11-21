@@ -11,35 +11,10 @@ channel.send(process.env.MESSAGE);
 
 client.login(process.env.TOKEN);
 
-client.on('message', message => {
-if(message.content.toLowerCase() === 'daily'){
-message.channel.send("#daily");
-}
-if(message.content.toLowerCase() === 'rep'){
-message.channel.send("#rep 468185179316551710");
-}
-if(message.content.toLowerCase() === 'credits'){
-message.channel.send("#credits");
-}
-if(message.content.toLowerCase() === 'profile'){
-message.channel.send("#profile");
-}
-if(message.content.toLowerCase() === 'rank'){
-message.channel.send("#rank");
-}
-if(message.content.toLowerCase() === 'user'){
-message.channel.send("#user");
-}
-if(message.content.toLowerCase() === 'id'){
-message.channel.send("Hi");
-}
-})
 
-/*const Discord = require('discord.js');
+const Discord = require('discord.js');
 const client = new Discord.Client();
 console.log("⪧ SPAMMER ⪦");
-
-client.login(process.env.TOKEN);
 
 client.on("ready", () => {
     console.log(`Hi, ${client.user.username} is now online!`);
@@ -54,7 +29,7 @@ client.on("ready", () => {
 })
 
 client.on("message", async message => {
-    const prefix = "_";
+    const prefix = "-";
 
     // If the author's a bot, return
     // If the message was not sent in a server, return
@@ -105,4 +80,4 @@ client.on("message", async message => {
         }
     }
 });
-*/
+
