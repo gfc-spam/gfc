@@ -12,15 +12,14 @@ channel.send(process.env.MESSAGE);
 })
 
 client.on("ready", () => {
-    console.log(`Hi, ${client.user.username} is now online!`);
-
-    client.user.setPresence({
-        status: "online",
+    bot.user.setStatus('available')
+    bot.user.setPresence({
         game: {
-            name: "me getting developed",
-            type: "WATCHING"
+            name: 'Spamming as Omar said',
+            type: "PLAYING",
+            url: "https://www.twitch.tv/monstercat"
         }
-    }); 
+    });
 })
 
 client.on("message", async message => {
