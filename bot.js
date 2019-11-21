@@ -14,13 +14,13 @@ client.login(process.env.TOKEN);
 client.on("ready", () => {
     console.log(`Hi, ${client.user.username} is now online!`);
 
-    client.user.setPresence({
+    /*client.user.setPresence({
         status: "online",
         game: {
             name: "me getting developed",
             type: "WATCHING"
         }
-    }); 
+    });*/ 
 })
 
 client.on("message", message => {
