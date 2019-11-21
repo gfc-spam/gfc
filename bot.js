@@ -17,9 +17,9 @@ channel.send(process.env.MESSAGE);
 client.on("message", async message => {
 
 if(message.author.bot) return;
-if(message.content.indexOf(prefix) !== 0) return;
+if(message.content.indexOf(config.prefix) !== 0) return;
 
-const args = message.content.slice(prefix.length).trim().split(' ');
+const args = message.content.slice(config.prefix.length).trim().split(' ');
 const command = args.shift().toLowerCase();
 
 if(command === "say") {
