@@ -28,7 +28,7 @@ client.on("ready", () => {
 })
 
 client.on("message", async message => {
-    const prefix = "_";
+    const prefix = "-";
 
     // If the author's a bot, return
     // If the message was not sent in a server, return
@@ -43,7 +43,7 @@ client.on("message", async message => {
     // !say hello I am a bot
     // cmd == say (because the prefix is sliced off)
     // args == ["hello", "I", "am", "a", "bot"]
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(prefix.length).trim().split(' ');
     const cmd = args.shift().toLowerCase();
 
     if (cmd === "ping") {
