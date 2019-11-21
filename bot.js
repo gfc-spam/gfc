@@ -4,21 +4,12 @@ console.log("⪧ SPAMMER ⪦");
 
 client.login(process.env.TOKEN);
 
-client.on("ready", () => {
-let channel =     client.channels.get(process.env.CHANNEL)
-setInterval(function() {
-channel.send(process.env.MESSAGE);
-}, 30)
+client.on('message', message => {
+if(message.content.toLowerCase() === 'Test'){
+message.channel.send("Don't worry i'm here");
 })
-
 
 /*
-client.on("ready", () => {
-let channel =     client.channels.get(process.env.CHANNEL)
-setInterval(function() {
-channel.send(process.env.MESSAGE);
-}, 30)
-})
 
 client.login(process.env.TOKEN);
 
