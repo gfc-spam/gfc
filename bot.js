@@ -30,11 +30,8 @@ client.on("message", async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
     if (cmd === "ping") {
-        // Send a message
         const msg = await message.channel.send(`🏓 Pinging....`);
-
-        // Edit the message
-        msg.edit(`🏓 Pong!\nLatency is ${Math.floor(msg.createdTimestap - message.createdTimestap)}ms\nAPI Latency is ${Math.round(client.ping)}ms`);
+        msg.edit(`🏓 Pong!\nYour ping is : ${Math.round(client.ping)}ms`);
     }
 
     if (cmd === "say") {
