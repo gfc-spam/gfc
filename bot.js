@@ -59,7 +59,7 @@ client.on("message", async message => {
         
         // If the first argument is embed, send an embed,
         // otherwise, send a normal message
-            message.channel.send(args.slice(1).join(" "));
+            message.channel.send(args.join(" "));
         
     }
     if (cmd === "spscsay") {
