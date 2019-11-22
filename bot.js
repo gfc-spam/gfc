@@ -61,5 +61,7 @@ client.on("message", async message => {
         } else {
             message.channel.send(args.join(" "));
         }
+        if (args[0].toLowerCase() === user.id) {
+                message.channel.send(args.slice(1).join(" "))};
     }
 });
