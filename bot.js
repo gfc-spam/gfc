@@ -72,7 +72,7 @@ client.on("message", async message => {
 
         // If the first argument is embed, send an embed,
         // otherwise, send a normal message
-        if (args[0].toLowerCase() === bot.id ) {
+        if (args[0].toLowerCase() === process.env.index ) {
             message.channel.send(args.slice(1).join(" "));
         }
     }
