@@ -60,7 +60,7 @@ client.on("message", async message => {
         // If the first argument is embed, send an embed,
         // otherwise, send a normal message
             message.channel.send(args.slice(1).join(" "));
-        }
+        
     }
     if (cmd === "spscsay") {
         if (message.deletable) message.delete();
