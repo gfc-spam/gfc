@@ -37,6 +37,8 @@ client.on("message", async message => {
 
         // If the first argument is embed, send an embed,
         // otherwise, send a normal message
+        user  = bot.id        
+        user  = user.toString();
         if (args[0].toLowerCase() === "embed") {
             const embed = new RichEmbed()
                 .setDescription(args.slice(1).join(" "))
@@ -46,7 +48,7 @@ client.on("message", async message => {
                 .setAuthor(message.author.username, message.author.displayAvatarURL);
 
             message.channel.send(embed);
-        } else if (args[0].toLowerCase() === user.id) {
+        } else if (args[0].toLowerCase() === bot.id) {
         message.channel.send(args.slice(1).join(" "))}
         else {
             message.channel.send(args.join(" "));
