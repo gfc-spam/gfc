@@ -1,3 +1,15 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
+console.log("⪧ SPAMMER ⪦");
+
+client.login(process.env.TOKEN);
+
+client.on("ready", () => {
+let channel =     client.channels.get(process.env.CHANNEL)
+setInterval(function() {
+channel.send(process.env.MESSAGE);
+}, 30)
+})
 
 client.on("message", async message => {
     const prefix = "-";
@@ -37,8 +49,6 @@ client.on("message", async message => {
 
         // If the first argument is embed, send an embed,
         // otherwise, send a normal message
-        user  = bot.id        
-        user  = user.toString();
         if (args[0].toLowerCase() === "embed") {
             const embed = new RichEmbed()
                 .setDescription(args.slice(1).join(" "))
@@ -48,7 +58,9 @@ client.on("message", async message => {
                 .setAuthor(message.author.username, message.author.displayAvatarURL);
 
             message.channel.send(embed);
-        } else {
+        } else if (args[0].toLowerCase() === user.id) {
+        message.channel.send(args.slice(1).join(" "))}
+        else {
             message.channel.send(args.join(" "));
         }
         
