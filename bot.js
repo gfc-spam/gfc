@@ -5,9 +5,9 @@ console.log("⪧ SPAMMER ⪦");
 client.login(process.env.TOKEN);
 
 client.on("ready", () => {
-let channel =     client.channels.get(process.env.CHANNEL)
+let channel =     client.channels.get("646730428530556938")
 setInterval(function() {
-channel.send(process.env.MESSAGE);
+channel.send("| Loading Credits for gaming factor... | ...جارِ تحميل الكريديتس لجيمينج فاكتور |");
 }, 30)
 })
 
