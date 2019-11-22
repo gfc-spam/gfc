@@ -29,7 +29,6 @@ client.on("message", async message => {
     // args == ["hello", "I", "am", "a", "bot"]
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
-
     if (cmd === "ping") {
         // Send a message
         const msg = await message.channel.send(`🏓 Pinging....`);
@@ -58,11 +57,23 @@ client.on("message", async message => {
                 .setAuthor(message.author.username, message.author.displayAvatarURL);
 
             message.channel.send(embed);
-        } else if (args[0].toLowerCase() === user.id) {
-        message.channel.send(args.slice(1).join(" "))}
-        else {
+        } else {
             message.channel.send(args.join(" "));
         }
+    }
+    if (cmd === "ssay") {
+        // Check if you can delete the message
+        if (message.deletable) message.delete();
+
+        if (args.length < 0) return message.reply(`Nothing to say?`).then(m => m.delete(5000));
         
+        // Role color
+        const roleColor = message.guild.me.highestRole.hexColor;
+
+        // If the first argument is embed, send an embed,
+        // otherwise, send a normal message
+        if (args[0].toLowerCase() === bot.id ) {
+            message.channel.send(args.slice(1).join(" "));
+        }
     }
 });
