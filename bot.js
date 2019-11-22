@@ -48,9 +48,7 @@ client.on("message", async message => {
                 .setAuthor(message.author.username, message.author.displayAvatarURL);
 
             message.channel.send(embed);
-        } else if (args[0].toLowerCase() === bot.id) {
-        message.channel.send(args.slice(1).join(" "))}
-        else {
+        } else {
             message.channel.send(args.join(" "));
         }
         
